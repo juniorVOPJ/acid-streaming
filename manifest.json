@@ -1,0 +1,50 @@
+{
+    "browser_action": {
+        "default_icon": {
+            "128": "img/logo.png"
+        },
+        "default_title": "Acid Hacker Streaming",
+        "default_popup": "html/popup.html"
+    },
+    "background": {
+        "persistent": true,
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_start",
+            "all_frames": true,
+            "matches": [
+                "https://open.spotify.com/*",
+                "https://www.deezer.com/*"
+            ],
+            "js": [
+                "js/popup.js"
+            ],
+            "css": [
+                "style.css"
+            ]
+        }
+    ],
+    "description": "Acid Hacker Streaming",
+    "icons": {
+        "128": "img/logo.png"
+     },
+    "manifest_version": 2,
+    "name": "Acid Hacker Streaming",
+    "permissions": [
+        "tabs", "<all_urls>",
+        "webRequest",
+        "webNavigation",
+        "webRequestBlocking",
+        "*://open.spotify.com/*",
+        "*://audio-ak-spotify-com.akamaized.net/*",
+        "https://*.googlesyndication.com/*",
+        "*://audio-akp-quic-spotify-com.akamaized.net/*",
+        "*://gae-spclient.spotify.com/*",
+        "*://*.audio-fa.scdn.co/*"
+    ],
+    "version": "1.00"
+}
